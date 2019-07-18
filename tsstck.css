@@ -1,0 +1,135 @@
+.inner {
+  overflow-x: scroll;
+  overflow-y: visible;
+
+  margin: 0.5vw;
+
+  width: 97vw;
+  height: 84vh;
+
+  border-style: solid;
+  border-width: 3px;
+  border-color: black;
+  border-radius: 5px
+}
+
+
+table {
+  font-size: 1.5vh;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  border-spacing: 0;
+  text-align: center;
+  vertical-align: middle;
+
+  width: 100%;
+  white-space: nowrap;
+
+  -webkit-overflow-scrolling:touch;
+}
+
+
+
+td {
+  min-width: 10em;
+  padding: 2px 2px 7px 2px;
+  height: unset;
+  color: #000000a8;
+  font-weight: normal;
+
+  text-align: center;
+}
+
+th {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0px;
+
+  border-right: solid white 1px;
+  padding: 2px 2px;
+  font-weight: bold
+}
+
+.th0 {
+  background-color: #D8E6F3;
+  border-bottom: solid black 1px;
+  z-index: 10;
+  top: 0; left: 0;
+}
+
+.td-header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+
+  height: 2.5vh;
+  border-bottom: solid black 1px;
+  background-color: #ffffff;
+  color: Navy;
+
+  padding: 0;
+  vertical-align: middle;
+  font-size: 2vh;
+  text-align: center !important;
+}
+
+
+
+
+.newDayTr th,
+.newDayTr td {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 5em;
+
+  height: 4vh;
+  padding: 0.5em;
+
+  font-weight: bold;
+  color: #8e188d;
+  background-color: #e0dede;
+}
+.newDayTr th {
+  z-index: 1;
+}
+
+.tdSpan {
+  display: inline-block;
+  color: #0000ff5c;
+}
+
+.freeTimeTd {
+  text-align: left !important;
+  vertical-align: middle;
+  padding: 0 0 0 0px;
+  font-style: italic;
+  color: #252dbf;
+}
+
+.pastSlot th,
+.pastSlot td {
+  color: #0000006e;
+  font-style: italic;
+  background-color: #ffffffb5;
+}
+
+.noTime-book th,
+.noTime-book td {
+  background-color: #56565680;
+}
+
+
+
+
+
+.groupN {
+  background-color: #bfddf9;
+}
+.groupN.odd {
+  background-color: #cfedff;
+}
+.groupD {
+  background-color: #a8ff9e;
+}
+.groupD.odd {
+  background-color: #c9ffcb;
+}
