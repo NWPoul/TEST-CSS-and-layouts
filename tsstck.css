@@ -79,9 +79,9 @@ th {
 
 .newDayTr th,
 .newDayTr td {
-  position: -webkit-sticky;
+  /* position: -webkit-sticky;
   position: sticky;
-  top: 5em;
+  top: 5em; */
 
   height: 4vh;
   padding: 0.5em;
