@@ -9,6 +9,8 @@
 
   <link rel="stylesheet" href="tsstck.css" type="text/css"/>
 
+  <script src="js.js"></script>
+
 </head>
 <body>
 
@@ -16,7 +18,13 @@
     <table id="mainTable">
       <tbody id="btHeaderTbody" class="bookingTbody">
         <tr id="btHeaderTr" class="tableHeader">
-          <th id="r0c0" class="th0">th0</th>
+          <th id="r0c0" class="th0">
+            th0           
+        <div id="divHeader" class="divHeader">
+            div header!
+        </div>
+          </th>
+
           <td class="td-header">td1</td>
           <td class="td-header">td2</td>
           <td class="td-header">td3</td>
@@ -369,35 +377,6 @@
 
   <script>
     window.onload = testObserver;
-
-    function testObserver() {
-      console.log('setObserver');
-
-      var options = {
-        root: document.getElementById('inner')
-        // //rootMargin: '20% 0% 0% 50%',
-        // threshold: 1.0
-      }
-      var callback = function(entries, observer) {
-        entries.forEach(entry => {
-          var subj = {
-            time : entry.time,               // a DOMHightResTimeStamp indicating when the intersection occurred.
-            roorBounds : entry.rootBounds,         // a DOMRectReadOnly for the intersection observer's root.
-            bClRect : entry.boundingClientRect, // a DOMRectReadOnly for the intersection observer's target.
-            intersectionRext : entry.intersectionRect,   // a DOMRectReadOnly for the visible portion of the intersection observer's target.
-            intsRatio : entry.intersectionRatio,  // the number for the ratio of the intersectionRect to the boundingClientRect.
-            target : entry.target,             // the Element whose intersection with the intersection root changed.
-            isIntersecting : entry.isIntersecting     // intersecting: true or false
-          }
-          console.log(subj);
-        });
-      };
-
-      var observer = new IntersectionObserver(callback, options);
-      var target = document.getElementById('day2HeaderTh');
-
-      observer.observe(target);
-  }
   </script>
 
 </body>
