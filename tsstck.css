@@ -79,6 +79,11 @@ th {
   background-color: #787ef1
 }
 
+.target td,
+.target th {
+  color: #ff0000 !important
+}
+
 
 .newDayTr th,
 .newDayTr td {
