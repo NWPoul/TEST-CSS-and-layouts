@@ -1,0 +1,33 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": "eslint:recommended",
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly",
+
+        "swal": "writable",
+        "google": "writable",
+
+        "Global": "writable",
+        "APIanswer": "writable"
+    },
+
+
+    "parserOptions": {
+        "ecmaVersion": 8,
+        "sourceType": "module"
+    },
+    "rules": {
+        "indent": ["warn", 2],
+        "linebreak-style": ["warn", "windows"],
+        "quotes": ["warn", "single"],
+        "semi": ["warn", "always" ],
+        "no-console": "off",
+        "no-unused-vars": [1],
+        "no-global-assign":"off"
+    }
+}
