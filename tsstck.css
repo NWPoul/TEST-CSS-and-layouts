@@ -57,7 +57,7 @@ th {
   top: 0; left: 0;
 }
 
-.thTableHeader {
+.thHeader {
   top: 0px;
 
   height: 2.5vh;
@@ -69,6 +69,8 @@ th {
   vertical-align: middle;
   font-size: 2vh;
   text-align: center !important;
+
+  z-index: 2;
 }
 
 .thRowHeader {
@@ -76,14 +78,17 @@ th {
   border-right: solid white 1px;
 }
 
-.thNewDayHeader {
-  top: 5em;
-}
+
+
 
 .divHeader {
   position: absolute;
+  bottom: -0.1em;
   background-color: #787ef1
 }
+
+
+
 
 .target td,
 .target th {

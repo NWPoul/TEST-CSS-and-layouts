@@ -100,16 +100,20 @@ function doTable(table) {
     hTh.classList.add('th0');
     hTh.innerHTML = 'th0';
 
+
+
     let divHeader =  document.createElement('div');
     divHeader.id = 'divHeader';
     divHeader.classList.add('divHeader');
     divHeader.innerHTML = 'div Header!';
+    hTh.appendChild(divHeader);
+
 
     hTr.appendChild(hTh);
     for (let index = 0; index < colsCnt; index++) {
       let hTd =  document.createElement('th');
       //hTd.id = "hTd";
-      hTd.classList.add('thTableHeader');
+      hTd.classList.add('thHeader');
       hTd.innerHTML = 'th' +index;
 
       hTr.appendChild(hTd);
