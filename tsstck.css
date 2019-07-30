@@ -83,7 +83,8 @@ th {
 
 .divHeader {
   position: absolute;
-  bottom: -0.1em;
+  margin-top: 5px;
+  width: 98vw;
   background-color: #787ef1
 }
 
