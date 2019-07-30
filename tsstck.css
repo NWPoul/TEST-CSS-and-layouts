@@ -1,3 +1,7 @@
+body {
+  margin: 0
+}
+
 .inner {
   overflow-x: scroll;
   overflow-y: visible;
@@ -83,8 +87,13 @@ th {
 
 .divHeader {
   position: absolute;
-  margin-top: 5px;
-  width: 98vw;
+  margin-top: 4px;
+  width: 96vw;
+  padding: 0;
+
+  font-size: 2vh;
+  
+  vertical-align: middle;
   background-color: #787ef1
 }
 
@@ -99,11 +108,7 @@ th {
 
 .newDayTr th,
 .newDayTr td {
-  /* position: -webkit-sticky;
-  position: sticky;
-  top: 5em; */
-
-  height: 4vh;
+  height: 3vh;
   padding: 0.5em;
 
   font-weight: bold;
@@ -155,3 +160,12 @@ th {
 .groupD.odd {
   background-color: #c9ffcb;
 }
+
+.blinkElem {
+  background-color: #0600ff !important;
+  animation: change-background 1s linear infinite;
+}
+  @keyframes change-background {
+    0%, 100% { background: #a8ff9e; }
+    50% { background: #00a507c7; }
+  }

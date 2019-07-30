@@ -19,6 +19,7 @@ function testObserver(targetElementId) {
     root: document.getElementById('inner'),
     rootMargin: '-15% 0% 0% 0%'
   };
+
   var callback = function(entries, observer) {
     entries.forEach(entry => {
       var subj = {
@@ -31,43 +32,39 @@ function testObserver(targetElementId) {
         isIntersecting : entry.isIntersecting     // intersecting: true or false
       };
       //console.log(subj);
-      changeHeader();
+      changeHeader(subj);
     });
   };
 
-  var observer = new IntersectionObserver(callback, options);
-  var target = document.getElementById(targetElementId);
-  target.classList.add('target');
 
-  observer.observe(target);
+
+  var observer = new IntersectionObserver(callback, options);
+  var mainTable = document.getElementById('mainTable');
+  var headers = mainTable.getElementsByClassName('newDayTr');
+    // target.classList.add('target');
+  
+    for (let header of headers) {
+      observer.observe(header);
+    }
 }// end testObserver
 
 function changeHeader(params) {
-  let anchor = document.getElementById('th0');
+console.log(params)
+
+  let anchor = document.getElementById('divHeader');
   let anchorRect = anchor.getBoundingClientRect();
   let xPos = anchorRect.left+10;
-  let yPos = anchorRect.bottom+10;
+  let yPos = anchorRect.bottom+1;
 
   let checkElem = document.elementFromPoint(xPos, yPos);
-  console.log('yPos=' +yPos, 'elem: ', checkElem.innerHTML);
+  blinkElem(checkElem);
+  let lockedTbody = findParent(checkElem, 'TBODY');
+  let lockedTbodyHeader = lockedTbody.rows[0].cells[1];
+  let dayHeaderText = lockedTbodyHeader.innerHTML;
 
-  var newEl = document.createElement('div');
-  newEl.innerHTML = '$';
-  newEl.style.cssText = 'position:fixed;'
-  +'left:' +xPos +'px;'
-  +'top:' +(yPos + 1) +'px;'
-  +'z-index:100;'
-  +'border: 1px solid #000;'
-  +'background-color: red';
-
-  document.body.appendChild(newEl);
-
-  setTimeout(function() {
-    document.body.removeChild(newEl);
-  }, 3000);
-
-
-}
+  anchor.innerHTML = dayHeaderText;
+  
+}// end of changeHeader
 
 
 
@@ -83,8 +80,8 @@ function doTable(table) {
     table.appendChild( doTbody(rowsCnt, 0, index, '') );
   }
 
-
   return table;
+
 
   function doHeadTbody(colsCnt) {
     let headTbody = document.createElement('tbody');
@@ -102,11 +99,7 @@ function doTable(table) {
 
 
 
-    let divHeader =  document.createElement('div');
-    divHeader.id = 'divHeader';
-    divHeader.classList.add('divHeader');
-    divHeader.innerHTML = 'div Header!';
-    hTh.appendChild(divHeader);
+    setHeaderDiv(hTh);
 
 
     hTr.appendChild(hTh);
@@ -124,8 +117,6 @@ function doTable(table) {
     return headTbody;
   }// end do doHeadTbody
 
-
-  
 
   function doTbody(rowsCnt, colsCnt, dayN, dayHeader) {
     let tbody = document.createElement('tbody');
@@ -164,3 +155,31 @@ function doTable(table) {
     return tbody;
   }// end do Tbody
 }// end do table
+
+
+
+
+function setHeaderDiv(hTh) {
+  let divHeader = document.createElement('div');
+  divHeader.id = 'divHeader';
+  divHeader.classList.add('divHeader');
+  divHeader.innerHTML = 'div Header!';
+  hTh.appendChild(divHeader);
+
+  return divHeader;
+}
+
+function findParent(elem, targetTagName) {
+  while ( (elem = elem.parentElement) && (elem.tagName != targetTagName) )
+  return elem.parentElement;
+}
+
+function blinkElem(elem) {
+  if (typeof(elem) === 'string') {
+    elem = document.getElementById(elem);
+  }
+  elem.classList.toggle( 'blinkElem' );
+  setTimeout( () => {
+    elem.classList.toggle( 'blinkElem' );
+  }, 1000);
+}// end blinkElem
