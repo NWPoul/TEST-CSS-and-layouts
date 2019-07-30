@@ -43,7 +43,7 @@ function testObserver(targetElementId) {
 }// end testObserver
 
 function changeHeader(params) {
-  let anchor = document.getElementById('r0c0');
+  let anchor = document.getElementById('th0');
   let anchorRect = anchor.getBoundingClientRect();
   let xPos = anchorRect.left+10;
   let yPos = anchorRect.bottom+10;
@@ -96,7 +96,7 @@ function doTable(table) {
     hTr.classList.add('tableHeader');
 
     let hTh =  document.createElement('th');
-    hTh.id = 'r0c0';
+    hTh.id = 'th0';
     hTh.classList.add('th0');
     hTh.innerHTML = 'th0';
 
@@ -107,10 +107,10 @@ function doTable(table) {
 
     hTr.appendChild(hTh);
     for (let index = 0; index < colsCnt; index++) {
-      let hTd =  document.createElement('td');
+      let hTd =  document.createElement('th');
       //hTd.id = "hTd";
-      hTd.classList.add('td-header');
-      hTd.innerHTML = 'td' +index;
+      hTd.classList.add('thTableHeader');
+      hTd.innerHTML = 'th' +index;
 
       hTr.appendChild(hTd);
     }//end for cols
@@ -121,6 +121,8 @@ function doTable(table) {
   }// end do doHeadTbody
 
 
+  
+
   function doTbody(rowsCnt, colsCnt, dayN, dayHeader) {
     let tbody = document.createElement('tbody');
     tbody.id = dayN;
@@ -129,15 +131,15 @@ function doTable(table) {
     let hTr =  document.createElement('tr');
     hTr.id = 'day_' +dayN +'_Tr';
     hTr.classList.add('newDayTr');
-    hTr.innerHTML = `<th>day_${dayN}</th>
-                     <td colspan="3" class="newDayTr">full_day_${dayN}</td>`;
+    hTr.innerHTML = `<th class="thNewDayHeader">day_${dayN}</th>
+                     <th colspan="3" class="thNewDayHeader">full_day_${dayN}</th>`;
 
     tbody.appendChild(hTr);
 
     for (let index = 0; index < rowsCnt; index++) {
       let className = (index % 2 == 0) ? 'groupD' : 'groupD odd';
       let rowsStr = `<tr id="day${dayN}_${index}" class="${className}">
-      <th rowspan="2">${index} <br><span class="tdSpan"></span></th>
+      <th class="thRowHeader" rowspan="2">${index} <br><span class="tdSpan"></span></th>
       <td class="pf">v1</td>
       <td class="pf">v2</td>
       <td class="pf">v3</td>

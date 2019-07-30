@@ -24,6 +24,7 @@ table {
   width: 100%;
   white-space: nowrap;
 
+  position: relative;
   -webkit-overflow-scrolling:touch;
 }
 
@@ -44,9 +45,7 @@ td {
 th {
   position: -webkit-sticky;
   position: sticky;
-  left: 0px;
-
-  border-right: solid white 1px;
+  
   padding: 2px 2px;
   font-weight: bold
 }
@@ -58,9 +57,7 @@ th {
   top: 0; left: 0;
 }
 
-.td-header {
-  position: -webkit-sticky;
-  position: sticky;
+.thTableHeader {
   top: 0px;
 
   height: 2.5vh;
@@ -72,6 +69,15 @@ th {
   vertical-align: middle;
   font-size: 2vh;
   text-align: center !important;
+}
+
+.thRowHeader {
+  left: 0px;
+  border-right: solid white 1px;
+}
+
+.thNewDayHeader {
+  top: 5em;
 }
 
 .divHeader {
