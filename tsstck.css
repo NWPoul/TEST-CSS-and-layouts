@@ -163,9 +163,9 @@ th {
 
 .blinkElem {
   background-color: #0600ff !important;
-  animation: change-background 1s linear infinite;
+  animation: change-background 250ms linear infinite;
 }
   @keyframes change-background {
     0%, 100% { background: #a8ff9e; }
-    50% { background: #00a507c7; }
+    50% { background: #ff0000; }
   }

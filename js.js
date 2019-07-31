@@ -49,20 +49,19 @@ function testObserver(targetElementId) {
 }// end testObserver
 
 function changeHeader(params) {
-console.log(params)
+  let dayHeaderId = 'divHeader';
+  let dayHeader = document.getElementById(dayHeaderId);
 
-  let anchor = document.getElementById('divHeader');
-  let anchorRect = anchor.getBoundingClientRect();
-  let xPos = anchorRect.left+10;
-  let yPos = anchorRect.bottom+1;
+  let xOffset = 10;
+  let yOffset = params.isIntersecting ? 1 : 30; 
 
-  let checkElem = document.elementFromPoint(xPos, yPos);
-  blinkElem(checkElem);
-  let lockedTbody = findParent(checkElem, 'TBODY');
-  let lockedTbodyHeader = lockedTbody.rows[0].cells[1];
-  let dayHeaderText = lockedTbodyHeader.innerHTML;
+  let curElem = findCurElem('divHeader', xOffset, yOffset);
+  blinkElem(curElem);
+  let curTbody = findParent(curElem, 'TBODY');
+  let curTbodyHeader = curTbody.rows[0].cells[1];
+  let dayHeaderText = curTbodyHeader.innerHTML;
 
-  anchor.innerHTML = dayHeaderText;
+  dayHeader.innerHTML = dayHeaderText;
   
 }// end of changeHeader
 
@@ -159,6 +158,17 @@ function doTable(table) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 function setHeaderDiv(hTh) {
   let divHeader = document.createElement('div');
   divHeader.id = 'divHeader';
@@ -169,10 +179,23 @@ function setHeaderDiv(hTh) {
   return divHeader;
 }
 
+
+function findCurElem(anchorId, xOffset = 1, yOffset = 1) {
+  let anchor = document.getElementById(anchorId);
+  let anchorRect = anchor.getBoundingClientRect();
+  let xPos = anchorRect.left + xOffset;
+  let yPos = anchorRect.bottom + yOffset;
+
+  let curElem = document.elementFromPoint(xPos, yPos);
+  return curElem;
+}
+
+
 function findParent(elem, targetTagName) {
   while ( (elem = elem.parentElement) && (elem.tagName != targetTagName) )
   return elem.parentElement;
 }
+
 
 function blinkElem(elem) {
   if (typeof(elem) === 'string') {
@@ -183,3 +206,4 @@ function blinkElem(elem) {
     elem.classList.toggle( 'blinkElem' );
   }, 1000);
 }// end blinkElem
+
