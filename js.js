@@ -8,18 +8,21 @@ function start(params) {
 
   var targetElementId = 'day_3_Tr';
 
+  try {
   testObserver(targetElementId);
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 
 function testObserver(targetElementId) {
   //console.log('setObserver');
-
+try {
   var options = {
     root: document.getElementById('inner'),
     rootMargin: '-15% 0% 0% 0%'
   };
-
   var callback = function(entries, observer) {
     entries.forEach(entry => {
       var subj = {
@@ -36,21 +39,23 @@ function testObserver(targetElementId) {
     });
   };
 
-
-
   var observer = new IntersectionObserver(callback, options);
   var mainTable = document.getElementById('mainTable');
   var headers = mainTable.getElementsByClassName('newDayTr');
     // target.classList.add('target');
-  
-    for (let header of headers) {
-      observer.observe(header);
-      showLogDiv.innerHTML += header.id +'<br>';
-    }
-  
-    showLogDiv.innerHTML += 'observer root: ' +observer.root.id;
-}// end testObserver
+  for (let header of headers) {
+    observer.observe(header);
+    showLogDiv.innerHTML += header.id +'<br>';
+  }
+  showLogDiv.innerHTML += 'observer root: ' +observer.root.id;
 
+  let errort = dayHeader.dff.ff
+} catch (error) {
+  console.log('inside testObserver: ', error)
+  showLogDiv.innerHTML += error.message
+}
+
+}// end testObserver  
 function changeHeader(params) {
   let dayHeaderId = 'divHeader';
   let dayHeader = document.getElementById(dayHeaderId);
@@ -65,6 +70,7 @@ function changeHeader(params) {
   let dayHeaderText = curTbodyHeader.innerHTML;
 
   dayHeader.innerHTML = dayHeaderText;
+  
   
 }// end of changeHeader
 
@@ -97,7 +103,7 @@ function doTable(table) {
     let hTh =  document.createElement('th');
     hTh.id = 'th0';
     hTh.classList.add('th0');
-    hTh.innerHTML = 'th0 v2';
+    hTh.innerHTML = 'th0 v3';
 
 
 

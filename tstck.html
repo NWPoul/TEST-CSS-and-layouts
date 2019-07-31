@@ -23,9 +23,25 @@
   <div id="showLogDiv" class="showLogDiv">
   </div>
 
+
   <script>
-    window.onload = start;
-    var showLogDiv = document.getElementById("showLogDiv")
+    var showLogDiv = document.getElementById("showLogDiv");
+
+    window.addEventListener('error', function (e) {
+      if (e.error) {
+        var stack = e.error.stack;
+        var message = e.error.toString();
+        if (stack) {
+          message += '\n' + stack;
+        }
+      } else {
+        var message = e;
+      }
+      console.log('catchedErr: ' + message);
+      showLogDiv.innerHTML += 'catchedErr: ' + message +'<br>';
+    });
+
+    window.onload = start();
   </script>
 
 </body>
