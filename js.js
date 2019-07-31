@@ -102,7 +102,7 @@ function doTable(table) {
     let hTh =  document.createElement('th');
     hTh.id = 'th0';
     hTh.classList.add('th0');
-    hTh.innerHTML = 'th0 v3';
+    hTh.innerHTML = 'th0';
 
 
 
