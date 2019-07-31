@@ -49,7 +49,6 @@ try {
   }
   showLogDiv.innerHTML += 'observer root: ' +observer.root.id;
 
-  let errort = dayHeader.dff.ff
 } catch (error) {
   console.log('inside testObserver: ', error)
   showLogDiv.innerHTML += error.message
