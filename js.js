@@ -45,7 +45,10 @@ function testObserver(targetElementId) {
   
     for (let header of headers) {
       observer.observe(header);
+      showLogDiv.innerHTML += header.id +'<br>';
     }
+  
+    showLogDiv.innerHTML += 'observer root: ' +observer.root.id;
 }// end testObserver
 
 function changeHeader(params) {
