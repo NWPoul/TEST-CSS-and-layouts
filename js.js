@@ -78,7 +78,7 @@ function changeHeader(params) {
 
 function doTable(table) {
   let colsCnt = 3;
-  let rowsCnt = 10;
+  let rowsCnt = 30;
   let daysN = 5;
 
   table.appendChild( doHeadTbody(colsCnt) );
