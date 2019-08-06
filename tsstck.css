@@ -4,7 +4,8 @@ body {
 
 .inner {
   overflow-x: scroll;
-  overflow-y: visible;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 
   margin: 0.5vw;
 
@@ -29,7 +30,6 @@ table {
   white-space: nowrap;
 
   position: relative;
-  -webkit-overflow-scrolling:touch;
 }
 
 tbody {
