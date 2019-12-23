@@ -50,6 +50,8 @@ th {
   position: -webkit-sticky;
   position: sticky;
 
+  background-color: white;
+
   padding: 2px 2px;
   font-weight: bold
 }
@@ -81,9 +83,6 @@ th {
   left: 0px;
   border-right: solid white 1px;
 }
-
-
-
 
 .divHeader {
   position: absolute;
@@ -168,4 +167,22 @@ th {
   @keyframes change-background {
     0%, 100% { background: #a8ff9e; }
     50% { background: #ff0000; }
+  }
+
+
+
+
+
+
+
+  .thColClass {
+    top: 0px;
+    border-bottom: solid black 1px;
+    background-color: #ffffff;
+  }
+
+  .thRowClass {
+    left: 0px;
+    border-right: solid black 1px;
+    background-color: #ffffff;
   }
