@@ -6,33 +6,37 @@
     <meta name="robots" content="noindex"/>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-     
+
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-    
+
    <style type="text/css">
      table {
        border: 1px solid black;
-       border-spacing: 2
+       border-spacing: 2;
+       font-size: 28px
      }
-     
+
      th,td {
        border: 1px solid black;
        padding: 10px 15px
      }
+
+     .check {
+       background-color: red
+     }
    </style>
-    
+
   </head>
 
-  
-  
-  
+
+
+
 <body>
-  <!--
   <div style="white-space: nowrap; display: inline-flex">
-    <button id="testButton" onClick="alert(this)" style="min-width: 10em; min-height:10em; font-size: 24px"><b> TEST </b></button>
+    <button id="testButton" onClick="" style="min-width: 10em; min-height:2em; font-size: 28px"><b> TEST </b></button>
   </div>
-  -->
-  
+
+
   <table id="mainTable" onClick="clickOnTable()">
   <tbody class="tbodyClass">
     <tr id="r0" class="headerRowClass">
@@ -217,30 +221,28 @@
     </tr>
   </tbody>
 </table>
-  
+
   <script>
      window.addEventListener('error', function (e) {
       var stack = e.error.stack;
       var message = e.error.toString();
-      
       if (stack) {
           message += '\n' + stack;
       }
       alert('catchedErr: ' + message)
     });
-    
-    clickOnTable(e) {
-       alert(e);
-    }
-  
+
+    function clickOnTable(e) {
+       console.log(event);
+       var actTD = event.target;
+       var actTDiD = actTD.id;
+       var testButton = document.getElementById("testButton");
+       testButton.innerText = actTDiD;
+       actTD.classList.toggle('check');
+    }//end clickOnTable
+
   </script>
-  
+
  </body>
-  
-  
-  
-  
-  
-  
- 
+
 </html>
