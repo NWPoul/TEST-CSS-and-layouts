@@ -18,8 +18,8 @@ function makeTableHTML(myArray) {
 
 
 function setSimpleTable() {
-  let rowsCnt = 50,
-      colsCnt = 100;
+  let rowsCnt = 15,
+      colsCnt = 10;
 
   let mainTable = document.getElementById('mainTable');
   doTable(mainTable, rowsCnt, colsCnt);

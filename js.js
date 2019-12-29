@@ -54,13 +54,13 @@ try {
   showLogDiv.innerHTML += error.message
 }
 
-}// end testObserver  
+}// end testObserver
 function changeHeader(params) {
   let dayHeaderId = 'divHeader';
   let dayHeader = document.getElementById(dayHeaderId);
 
   let xOffset = 10;
-  let yOffset = params.isIntersecting ? 1 : 30; 
+  let yOffset = params.isIntersecting ? 1 : 30;
 
   let curElem = findCurElem('divHeader', xOffset, yOffset);
   blinkElem(curElem);
@@ -69,8 +69,8 @@ function changeHeader(params) {
   let dayHeaderText = curTbodyHeader.innerHTML;
 
   dayHeader.innerHTML = dayHeaderText;
-  
-  
+
+
 }// end of changeHeader
 
 
@@ -140,14 +140,9 @@ function doTable(table) {
 
     for (let index = 0; index < rowsCnt; index++) {
       let className = (index % 2 == 0) ? 'groupD' : 'groupD odd';
-      let rowsStr = `<tr id="day${dayN}_${index}" class="${className}">
-      <th class="thRowHeader" rowspan="2">${index} <br><span class="tdSpan"></span></th>
-      <td class="pf">v1</td>
-      <td class="pf">v2</td>
-      <td class="pf">v3</td>
+      let rowsStr = `<tr id="day${dayN}_${index}" class="${className}"><th class="thRowHeader" rowspan="2">${index} <br><span class="tdSpan"></span></th><td class="pf">v1</td><td class="pf">v2</td><td class="pf">v3</td>
     </tr>
-    <tr class="groupN">
-      <td colspan="3" class="freeTimeTd"> -- ft marker --</td>
+    <tr class="groupN"><td colspan="3" class="freeTimeTd"> -- ft marker --</td>
     </tr>`;
 
       tbody.insertAdjacentHTML('beforeend', rowsStr);
