@@ -23,9 +23,17 @@ function setSimpleTable() {
 
   let mainTable = document.getElementById('mainTable');
   doTable(mainTable, rowsCnt, colsCnt);
+
+
+  mainTable.oncontextmenu = testLongClickHandler;
+
 }
 
-
+function testLongClickHandler(event) {
+    event.preventDefault();
+    let cell = event.target;
+    cell.innerHTML = 'clicked';
+}
 
 
 function doTable(table, rowsCnt = 50, colsCnt = 100) {
