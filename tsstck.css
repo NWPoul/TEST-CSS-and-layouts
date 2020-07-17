@@ -1,6 +1,9 @@
 body {
-  margin: 0
+  margin: 0;
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
 }
+
 
 .inner {
   overflow-x: scroll;
