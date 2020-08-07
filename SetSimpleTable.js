@@ -24,15 +24,52 @@ function setSimpleTable() {
   let mainTable = document.getElementById('mainTable');
   doTable(mainTable, rowsCnt, colsCnt);
 
-  mainTable.oncontextmenu = testLongClickHandler;
+  window.eventLogVar = '';
+  for(var key in mainTable){
+    if(key.search('on') === 0) {
+      mainTable.addEventListener(key.slice(2), showEvent);
+    }
+  }
+
+  // mainTable.oncontextmenu = testLongClickHandler;
+  // mainTable.onclick = testClickHandler;
 }
+
 
 function testLongClickHandler(event) {
     event.preventDefault();
-    let cell = event.target;
-    cell.innerHTML = 'clicked';
+    // alert(event.type);
+    // let cell = event.target;
+    cell.innerHTML = 'Long';
+    return false;
 }
 
+function testClickHandler(event) {
+  event.preventDefault();
+  console.log(event.target, event.type);
+  // alert(event.type);
+  let cell = event.target;
+  cell.innerHTML = 'click';
+  return false;
+}
+
+function showEvent(event) {
+  if (event.target.tagName != 'TD') return;
+  // event.preventDefault();
+  window.eventLogVar += `${event.type}
+  `;
+  console.log(event.type);
+  // alert(window.eventLog);
+  // let cell = event.target;
+  // cell.innerHTML = event.type;
+  return false;
+}
+
+
+function sendLog() {
+  alert(window.eventLogVar);
+  window.eventLogVar = '';
+}
 
 function doTable(table, rowsCnt = 50, colsCnt = 100) {
   let tbody = document.createElement('tbody');
