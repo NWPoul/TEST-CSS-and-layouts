@@ -56,8 +56,10 @@ function testClickHandler(event) {
 function showEvent(event) {
   if (event.target.tagName != 'TD') return;
   // event.preventDefault();
-  window.eventLogVar += `${event.type}
-  `;
+  if(!event.type.includes('pointer') ){
+      window.eventLogVar += `${event.type}
+      `;
+  }
   console.log(event.type);
   // alert(window.eventLog);
   // let cell = event.target;
