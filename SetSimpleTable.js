@@ -25,11 +25,14 @@ function setSimpleTable() {
   doTable(mainTable, rowsCnt, colsCnt);
 
   window.eventLogVar = '';
+  window.loggerDiv = document.getElementById('loggerDiv');
+
   for(var key in mainTable){
     if(key.search('on') === 0) {
       mainTable.addEventListener(key.slice(2), showEvent);
     }
   }
+
 
   // mainTable.oncontextmenu = testLongClickHandler;
   // mainTable.onclick = testClickHandler;
@@ -58,9 +61,11 @@ function showEvent(event) {
   // event.preventDefault();
   if(!event.type.includes('pointer') ){
       window.eventLogVar += `${event.type}
-      `;
+  `;
+      window.loggerDiv.innerHTML = `${event.type}<br>` + window.loggerDiv.innerHTML;
   }
   console.log(event.type);
+
   // alert(window.eventLog);
   // let cell = event.target;
   // cell.innerHTML = event.type;
