@@ -4,11 +4,26 @@
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
+
     {
-      "name": "Launch tstck.html (no srcMaps)",
+      "name": "tstck.html",
       "type": "chrome",
       "request": "launch",
       "file": "${workspaceRoot}/tstck.html"
-  },
+    },
+    {
+      "name": "CH tstModules",
+      "type": "chrome",
+      "request": "launch",
+      "file": "${workspaceRoot}/testModules.html",
+      "runtimeArgs": ["--disable-web-security", "--disable-gpu"]
+    },
+    {
+      "name": "FF tstModules",
+      "type": "firefox",
+      "request": "launch",
+      "file": "${workspaceRoot}/testModules.html",
+      // "runtimeArgs": ["--disable-web-security", "--disable-gpu"]
+    }
   ]
 }

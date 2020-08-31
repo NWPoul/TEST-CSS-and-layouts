@@ -1,4 +1,4 @@
-import m1 from "./Modules/m1.js";
+import m1 from './Modules/m1.js';
 
 function testStart() {
     let testSpan = document.getElementById('testSpan');
