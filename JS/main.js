@@ -1,9 +1,9 @@
-import m1 from './Modules/m1.js';
+import {m1} from './Modules/m1.js';
 
-function testStart() {
+function testFunction() {
     let testSpan = document.getElementById('testSpan');
     testSpan.innerHTML = m1.testMF();
+    console.log('tf runned');
 }
 
-let testSpan = document.getElementById('testSpan');
-    testSpan.innerHTML = m1.testMF();
+export {testFunction}
